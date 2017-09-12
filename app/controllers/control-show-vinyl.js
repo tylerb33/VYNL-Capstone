@@ -29,6 +29,7 @@ app.controller("showVinylCtrl", function($scope, $window, FBFactory, LastFMFacto
     console.log ("arrayOfCustomVinylObjects", arrayOfCustomVinylObjects);
     arrayOfCustomVinylObjects.forEach(function(item, index) {
       if (item.mbid == IDfromDispVinylhtml) {
+          item.wishlisted = true;
         // console.log("You Chose:", item);
           FBFactory.addVinyl(item);
       }

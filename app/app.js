@@ -31,6 +31,11 @@ app.config(($routeProvider) => {
 		resolve: {isAuth}
 		//isAuth is missing some 'plumbing' to function completely
 	})
+	.when('/wishlist', {
+		templateUrl: 'partials/displayvinyl.html',
+		controller: 'wishlistCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 

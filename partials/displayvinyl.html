@@ -18,8 +18,9 @@
 	  <div class="card-block">
 	    <h4 class="card-title">{{album.album_name}}</h4>
 	    <p class="card-text">{{album.artist_name}}</p>
-	    <a href="" ng-click="findMatchingMBID(album.mbid)" class="btn btn-primary">Add To Wishlist</a>
-	    <a href="#" ng-click="" class="btn btn-primary">Add To Owned</a>
+	    <a href="" ng-show="album.wishlisted !== true" ng-click="findMatchingMBID(album.mbid)" class="btn btn-primary">Add To Wishlist</a>
+	    <a href="" ng-click="" class="btn btn-primary">Add To Owned</a>
+	    <a href="" ng-show="album.wishlisted || album.owned === true" ng-click="deleteVinyl(album.firebaseID)" class="btn btn-primary">Delete</a>
 	  </div>
 	</div>
 </div>
