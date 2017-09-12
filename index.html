@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VYNL</title>
+	<link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body ng-app="VynlApp">
+	<div ng-include="'partials/navbar.html'"></div>
+	
+	<div ng-view> </div>
+
+
+	<!-- BEGINNING OF REQUIREDS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./lib/node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./lib/node_modules/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="./lib/node_modules/firebase/firebase.js"></script>
+
+	<script src="app/app.js"></script>
+    <script src="app/values/fb-creds.js"></script>
+    <!-- factories -->
+	<script type="text/javascript" src="app/factories/FB-Interaction-Factory.js"></script>
+	<script type="text/javascript" src="app/factories/LastFMFactory.js"></script>
+	<script type="text/javascript" src="app/factories/SearchFactory.js"></script>
+	<script type="text/javascript" src="app/factories/UserFactory.js"></script>
+
+    <!-- controllers -->
+	<script type="text/javascript" src="app/controllers/control-add-vinyl.js"></script>
+	<script type="text/javascript" src="app/controllers/control-edit-vinyl.js"></script>
+	<script type="text/javascript" src="app/controllers/control-navbar.js"></script>
+	<script type="text/javascript" src="app/controllers/control-show-vinyl.js"></script>
+	<script type="text/javascript" src="app/controllers/control-single-vinyl.js"></script>
+	<script type="text/javascript" src="app/controllers/control-user.js"></script>
+
+</body>
+</html>
