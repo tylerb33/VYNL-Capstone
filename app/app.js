@@ -36,6 +36,11 @@ app.config(($routeProvider) => {
 		controller: 'wishlistCtrl',
 		resolve: {isAuth}
 	})
+	.when('/edit/:vinylId', {
+		templateUrl: 'partials/editvinyl.html',
+		controller: 'editCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 
