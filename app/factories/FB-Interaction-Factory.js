@@ -21,25 +21,65 @@ app.factory("FBFactory", function($q, $http, FBCreds) {
         });
     };
 
-	const addVinyl = function() {
+	const addVinyl = function(newVinylObject) {
 
+        return $q( (resolve, reject) => {
+            $http.post(`${FBCreds.databaseURL}/vinyl.json`, newVinylObject)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        });        
+    };
+
+	const getSingleVinyl = function(vinylFBID) {
+
+        return $q( (resolve, reject) => {
+            $http.get(`${FBCreds.databaseURL}/vinyl/${vinylFBID}.json`)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        }); 
 	};
 
-	const getSingleVinyl = function() {
-
+	const deleteVinyl = function(vinylFBID) {
+        return $q( (resolve, reject) => {
+            $http.delete(`${FBCreds.databaseURL}/vinyl/${vinylFBID}.json`)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+        }); 
 	};
 
-	const deleteVinyl = function() {
 
-	};
-
-	const editVinyl = function() {
-
-	};
-
+	const editVinyl = function(vinylFBID, editedVinylObject) {
+        return $q( (resolve, reject) => {
+            let stringyObject = JSON.stringify(editedVinylObject);
+            $http.patch(`${FBCreds.databaseURL}/vinyl/${vinylFBID}.json`, stringyObject)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            })
+            .catch((error) => {
+                reject(error);
+            });
+        }); 
+    };
 
 	return {getAllVinyl, addVinyl, getSingleVinyl, deleteVinyl, editVinyl};
-
 });
 
 
