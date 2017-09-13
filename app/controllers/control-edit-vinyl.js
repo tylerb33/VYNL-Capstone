@@ -4,6 +4,9 @@
 // then a submit function will send that filled out form/object into Firebase, along with its Firebase ID... with a Patch method
 app.controller("editCtrl", function($scope, $window, $routeParams, $location, userFactory, FBFactory){
 
+$scope.headerText = "Edit Vinyl";
+$scope.buttonText = "Submit Edit";
+
 	$scope.album = {
 		artist_name: "",
 		album_name: "",
@@ -19,10 +22,12 @@ const showEditValues = function(){
     	});
     };
 
-
-
-
-
+$scope.submitVinyl = function() {
+    FBFactory.editVinyl($routeParams.vinylId, $scope.album)
+        .then( (data) => {
+            $location.path("#!/initial");
+        });
+};
 
 
 showEditValues();

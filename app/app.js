@@ -37,8 +37,13 @@ app.config(($routeProvider) => {
 		resolve: {isAuth}
 	})
 	.when('/edit/:vinylId', {
-		templateUrl: 'partials/editvinyl.html',
+		templateUrl: 'partials/editAndDeleteVinyl.html',
 		controller: 'editCtrl',
+		resolve: {isAuth}
+	})
+	.when('/newVinyl', {
+		templateUrl: 'partials/editAndDeleteVinyl.html',
+		controller: 'addCtrl',
 		resolve: {isAuth}
 	})
 	.otherwise('/');
