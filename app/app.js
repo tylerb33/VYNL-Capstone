@@ -30,8 +30,13 @@ app.config(($routeProvider) => {
 		controller: 'showVinylCtrl',
 		resolve: {isAuth}
 	})
+	.when('/usercollection', {
+		templateUrl: 'partials/displayvinyl.html',
+		controller: 'ownedCtrl',
+		resolve: {isAuth}
+	})
 	.when('/wishlist', {
-		templateUrl: 'partials/wishlisted.html',
+		templateUrl: 'partials/displayvinyl.html',
 		controller: 'wishlistCtrl',
 		resolve: {isAuth}
 	})
@@ -43,11 +48,6 @@ app.config(($routeProvider) => {
 	.when('/newVinyl', {
 		templateUrl: 'partials/editAndDeleteVinyl.html',
 		controller: 'addCtrl',
-		resolve: {isAuth}
-	})
-	.when('/usercollection', {
-		templateUrl: 'partials/owned.html',
-		controller: 'ownedCtrl',
 		resolve: {isAuth}
 	})
 	.otherwise('/');
