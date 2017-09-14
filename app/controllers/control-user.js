@@ -21,7 +21,7 @@ app.controller("userCtrl", function($scope, $window, userFactory, $location) {
     userFactory.authWithProvider()
     .then((result) => {
       let user = result.user.uid;
-      $location.path('/initial');
+      $location.path('/usercollection');
       $scope.$apply();
     }).catch((error) => {
       console.log("Google Login Error");

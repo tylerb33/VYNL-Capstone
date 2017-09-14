@@ -10,6 +10,7 @@ app.controller("showVinylCtrl", function($scope, $window, FBFactory, LastFMFacto
   // The below function queries the LastFM API, takes all ~50 resulting objects.
 
   $scope.searchLastFM = function(userInput) {
+    console.log ("USER INPUT", userInput);
     LastFMFactory.getLastFMvinyl(userInput)
     .then((APIvinyl) => {
       // console.log ("APIvinyl", APIvinyl);
