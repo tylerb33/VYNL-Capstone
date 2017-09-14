@@ -1,0 +1,33 @@
+<!-- search bar pointing to database -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" ng-model="artistSearch" id="userArtistInput" class="form-control" placeholder="Search by artist..." aria-label="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" ng-click="searchLastFM(artistSearch)">Go!</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ng-repeat of actual albums -->
+<div id="cardContainer">
+	<div class="row">
+		<div ng-repeat= "album in arrayOfCustomVinylObjects | filter: {owned: true}" >
+			  <div class="col-md-4">
+				<div class="card" data-mbid="{{album.mbid}}" style="width: 20rem;">
+				  <img class="card-img-top" src="{{album.album_image}}" alt="Card image cap">
+				  <div class="card-block">
+				    <h4 class="card-title">{{album.album_name}}</h4>
+				    <p class="card-text">{{album.artist_name}}</p>
+				    <a href="" ng-click="findMatchingMBIDforWishlist(album.mbid)" class="btn btn-outline-success">+ Wishlist</a>
+				    <a href="#!/edit/{{album.firebaseID}}"  class="btn btn-outline-info">Edit</a>
+				    <a href="" ng-click="deleteVinyl(album.firebaseID, album.mbid)" class="btn btn-outline-danger">Delete</a>
+				  </div>
+				</div>
+			  </div>
+		</div>
+	</div>
+</div>

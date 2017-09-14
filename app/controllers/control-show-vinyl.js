@@ -36,12 +36,26 @@ app.controller("showVinylCtrl", function($scope, $window, FBFactory, LastFMFacto
     });
   };
 
+  $scope.findMatchingMBIDforOwned = function(IDfromDispVinylhtml) {
+    console.log ("IDfromDispVinylhtml", IDfromDispVinylhtml);
+    console.log ("arrayOfCustomVinylObjects", arrayOfCustomVinylObjects);
+    arrayOfCustomVinylObjects.forEach(function(item, index) {
+      if (item.mbid == IDfromDispVinylhtml) {
+        console.log ("ITEM IS HERE", item);
+          item.owned = true;
+        // console.log("You Chose:", item);
+          FBFactory.addVinylToOwned(item);
+      }
+    });
+  };
+
     // console.log ("IDfromDispVinylhtml", IDfromDispVinylhtml);
 
 
 // The below looks to see if a vinyl has an image. If it doesn't, then it will not have an object built for it and will not be printed to the page.
 
   const buildVinylObj = function(singleRecord) {
+      $scope.arrayOfCustomVinylObjects = [];
 
     if (singleRecord.image[3]['#text'] !== "" && singleRecord.mbid !== "") {
       let currentUserID = userFactory.getCurrentUser();
@@ -64,4 +78,5 @@ app.controller("showVinylCtrl", function($scope, $window, FBFactory, LastFMFacto
       console.log ("arrayOfCustomVinylObjects", arrayOfCustomVinylObjects);
       $scope.arrayOfCustomVinylObjects = arrayOfCustomVinylObjects;
   };
+
 });

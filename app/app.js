@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module("VynlApp", ["ngRoute"]);
+const app = angular.module("VynlApp", ["ngRoute", "ui.bootstrap"]);
 
 //This checks to see if the user is logged in, isAuth sets a true of false variable that will be used to check if the route is okay. 
 let isAuth = (userFactory) => new Promise ((resolve, reject) => {
@@ -29,10 +29,9 @@ app.config(($routeProvider) => {
 		templateUrl: 'partials/displayvinyl.html',
 		controller: 'showVinylCtrl',
 		resolve: {isAuth}
-		//isAuth is missing some 'plumbing' to function completely
 	})
 	.when('/wishlist', {
-		templateUrl: 'partials/displayvinyl.html',
+		templateUrl: 'partials/wishlisted.html',
 		controller: 'wishlistCtrl',
 		resolve: {isAuth}
 	})
@@ -44,6 +43,11 @@ app.config(($routeProvider) => {
 	.when('/newVinyl', {
 		templateUrl: 'partials/editAndDeleteVinyl.html',
 		controller: 'addCtrl',
+		resolve: {isAuth}
+	})
+	.when('/usercollection', {
+		templateUrl: 'partials/owned.html',
+		controller: 'ownedCtrl',
 		resolve: {isAuth}
 	})
 	.otherwise('/');
@@ -59,3 +63,4 @@ app.run(($location, FBCreds) => {
 	};
 	firebase.initializeApp(authConfig);
 });
+

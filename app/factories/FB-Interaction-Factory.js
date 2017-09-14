@@ -37,6 +37,21 @@ app.factory("FBFactory", function($q, $http, FBCreds) {
             });
         });        
     };
+    
+    const addVinylToOwned = function(newVinylObject) {
+
+        return $q( (resolve, reject) => {
+            $http.post(`${FBCreds.databaseURL}/vinyl.json`, newVinylObject)  
+            .then( (data) => {
+                console.log("data", data);
+                resolve(data);
+            }, (error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                console.log("error", errorCode, errorMessage);
+            });
+        });        
+    };
 
 	const getSingleVinyl = function(vinylFBID) {
 
@@ -69,6 +84,7 @@ app.factory("FBFactory", function($q, $http, FBCreds) {
 
 	const editVinyl = function(vinylFBID, editedVinylObject) {
         return $q( (resolve, reject) => {
+            console.log ("difference?", vinylFBID, editedVinylObject);
             let stringyObject = JSON.stringify(editedVinylObject);
             $http.patch(`${FBCreds.databaseURL}/vinyl/${vinylFBID}.json`, stringyObject)  
             .then( (data) => {
@@ -81,7 +97,7 @@ app.factory("FBFactory", function($q, $http, FBCreds) {
         }); 
     };
 
-	return {getAllVinyl, addVinyl, getSingleVinyl, deleteVinyl, editVinyl};
+	return {getAllVinyl, addVinyl, getSingleVinyl, deleteVinyl, editVinyl, addVinylToOwned};
 });
 
 

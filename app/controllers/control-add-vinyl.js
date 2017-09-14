@@ -21,7 +21,7 @@ $scope.album = {
 $scope.submitVinyl = function() {
 	FBFactory.addVinyl($scope.album)
 		.then((data) => {
-			$location.url("/wishlist")
+			$location.url("/wishlist");
 		});
 	};
 

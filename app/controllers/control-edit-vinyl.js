@@ -22,10 +22,12 @@ const showEditValues = function(){
     	});
     };
 
+
+// The below submits the edited object to Firebase, then sets the URL back to the last used address, so the user is sent back to the appropriate place (owned or watchlist)
 $scope.submitVinyl = function() {
     FBFactory.editVinyl($routeParams.vinylId, $scope.album)
         .then( (data) => {
-            $location.path("#!/initial");
+            $window.history.back();
         });
 };
 
