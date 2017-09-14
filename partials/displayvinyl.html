@@ -12,26 +12,58 @@
 
 
 
+
 <!-- ng-repeat of actual albums -->
 <div id="cardContainer">
 	<div class="row">
-		<div ng-repeat= "album in arrayOfCustomVinylObjects | filter: {wishlisted: !true, owned: !true}">
-		  <div class="col-md-4">
-			<div class="card" data-mbid="{{album.mbid}}" style="width: 20rem;">
-			  <img class="card-img-top" src="{{album.album_image}}" alt="Card image cap">
-			  <div class="card-block">
-			    <h4 class="card-title">{{album.album_name}}</h4>
-			    <p class="card-text">{{album.artist_name}}</p>
-			    <a href="" ng-show="album.wishlisted !== true" ng-click="findMatchingMBID(album.mbid)" class="btn btn-outline-success">+ Wishlist</a>
-			    <a href="" ng-click="findMatchingMBIDforOwned(album.mbid)" class="btn btn-outline-success">+ Owned</a>
-			    <a href="#!/edit/{{album.firebaseID}}" ng-show="album.wishlisted || album.owned === true" ng-click="" class="btn btn-outline-info">Edit</a>
-			    <a href="" ng-show="album.wishlisted || album.owned === true" ng-click="deleteVinyl(album.firebaseID)" class="btn btn-outline-danger">Delete</a>
+		<div ng-repeat= "album in arrayOfCustomVinylObjects" >
+			  <div class="col-md-4">
+				<div class="card" data-mbid="{{album.mbid}}" style="width: 20rem;">
+				  <a href="" data-toggle="modal" data-target="#myModal{{$index}}"><img class="card-img-top" src="{{album.album_image}}" alt="Card image cap"></a>
+				  <div class="card-block">
+				    <h4 class="card-title">{{album.album_name}}</h4>
+				    <p class="card-text">{{album.artist_name}}</p>
+           
+				  </div>
+				</div>
 			  </div>
-			</div>
-		  </div>
-		</div>
-	</div>
+
+
+<!-- Modal (included in ng-repeat) -->
+<div class="modal fade" id="myModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{album.artist_name}}</h5>
+        <h4 class="modal-title" id="exampleModalLabel">{{album.album_name}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-4">
+        <div class="card" data-mbid="{{album.mbid}}" style="width: 20rem;">
+          <img class="card-img-top" src="{{album.album_image}}" alt="Card image cap">
+          <div class="card-block">
+
+            <a href="" ng-show="album.owned === false" ng-click="ownedToTrue(album)" class="btn btn-outline-success">+ Owned</a>
+            <a href="" ng-show="album.wishlisted === false" ng-click="wishlistToTrue(album)" class="btn btn-outline-success">+ Wishlist</a>
+            <a href="#!/edit/{{album.firebaseID}}" ng-show="album.wishlisted || album.owned === true"  class="btn btn-outline-info">Edit</a>
+            <a href="" ng-show="album.wishlisted || album.owned === true" ng-click="deleteVinyl(album.firebaseID, album)" class="btn btn-outline-danger">Delete</a>
+          </div>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+    </div>
+  </div>
 </div>
 
 
+
 <a href="#!/newVinyl" ng-click="" class="btn btn-primary btn-lg btn-block">Can't Find It? Create it!</a>
+
