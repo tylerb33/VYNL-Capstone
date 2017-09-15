@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("navCtrl", function($scope, $window, userFactory){
+app.controller("navCtrl", function($scope, $window, userFactory, LastFMService){
   
   // $scope.searchText = filterFactory;
 	$scope.isLoggedIn = false;
@@ -25,7 +25,7 @@ app.controller("navCtrl", function($scope, $window, userFactory){
   });
 	
   $scope.searchLastFM = function(artistSearch) {
-    console.log ("user search", artistSearch);
-
-  };
+    console.log ("artistSearch", artistSearch);
+    LastFMService.getLastFMvinyl(artistSearch);
+    };
 });

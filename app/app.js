@@ -26,17 +26,17 @@ app.config(($routeProvider) => {
 		controller: 'userCtrl'
 	})
 	.when('/initial', {
-		templateUrl: 'partials/displayvinyl.html',
+		templateUrl: 'partials/displayFromLastFM.html',
 		controller: 'showVinylCtrl',
 		resolve: {isAuth}
 	})
 	.when('/usercollection', {
-		templateUrl: 'partials/displayvinyl.html',
+		templateUrl: 'partials/displayFromFirebase.html',
 		controller: 'ownedCtrl',
 		resolve: {isAuth}
 	})
 	.when('/wishlist', {
-		templateUrl: 'partials/displayvinyl.html',
+		templateUrl: 'partials/displayFromFirebase.html',
 		controller: 'wishlistCtrl',
 		resolve: {isAuth}
 	})

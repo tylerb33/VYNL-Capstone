@@ -1,0 +1,22 @@
+
+
+<!-- ng-repeat of actual albums -->
+<div id="cardContainer">
+  <div class="row justify">
+    <div ng-repeat= "album in arrayOfCustomVinylObjects">
+      <div class="col-md-4">
+      <div class="card" data-mbid="{{album.mbid}}" style="width: 20rem;">
+        <img class="card-img-top" src="{{album.album_image}}" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">{{album.album_name}}</h4>
+          <p class="card-text">{{album.artist_name}}</p>
+          <a href="" ng-show="album.wishlisted !== true" ng-click="wishlistToTrue(album)" class="btn btn-outline-success">+ Wishlist</a>
+          <a href="" ng-show="album.owned !== true" ng-click="ownedToTrue(album)" class="btn btn-outline-success">+ Owned</a>
+          <a href="#!/edit/{{album.firebaseID}}" ng-show="album.owned === true" ng-click="" class="btn btn-outline-info">Edit</a>
+          <a href="" ng-show="album.wishlisted || album.owned === true" ng-click="deleteVinyl(album)" class="btn btn-outline-danger">Delete</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

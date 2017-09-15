@@ -2,6 +2,8 @@
 
 app.controller("wishlistCtrl", function($scope, $window, FBFactory, LastFMFactory, userFactory){
 
+
+
   let vinylFromLastFM = [];
   let currentArray = [];
   let filteredforWishlist = [];
