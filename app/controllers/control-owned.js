@@ -22,19 +22,16 @@ app.controller("ownedCtrl", function($scope, $window, FBFactory, LastFMFactory, 
 		});
 	};
 
-	$scope.deleteVinyl = function(FBID, mbid){
-	      filteredforOwned.forEach(function(item, index) {
-	      if (item.mbid == mbid) {
-	        console.log ("ITEM IS HERE", item);
-	          item.owned = false;
-	          item.wishlisted = false;
-	    	FBFactory.deleteVinyl(FBID)
-	    	.then( (response) => {
-	    		getAllUserOwned();
-	    	});
-	    }
-	  });
-	};
+	$scope.deleteVinyl = function(album){
+      // filteredforWishlist.forEach(function(item, index) {
+      console.log ("album", album);
+      album.owned = false;
+      album.wishlisted = false;
+    	FBFactory.deleteVinyl(album.firebaseID)
+    	.then( (irrelevant) => {
+    		getAllUserOwned();
+    	});
+    };
 
   $scope.wishlistToTrue = function(album) {
     album.wishlisted = true;
@@ -43,20 +40,20 @@ app.controller("ownedCtrl", function($scope, $window, FBFactory, LastFMFactory, 
     console.log ("album", album);
     FBFactory.editVinyl(album.firebaseID, album)
     .then ( (response) => {
-    	// getAllUserOwned();
+    	getAllUserOwned();
     });
   };
 
-  $scope.ownedToTrue = function(album) {
-    album.wishlisted = false;
-    album.owned = true;
-    delete album.$$hashKey;
-    console.log ("album", album);
-    FBFactory.editVinyl(album.firebaseID, album)
-    .then ( (response) => {
-    	// getAllUserOwned();
-    });
-  };
+  // $scope.ownedToTrue = function(album) {
+  //   album.wishlisted = false;
+  //   album.owned = true;
+  //   delete album.$$hashKey;
+  //   console.log ("album", album);
+  //   FBFactory.editVinyl(album.firebaseID, album)
+  //   .then ( (response) => {
+  //   	// getAllUserOwned();
+  //   });
+  // };
 
 
    //  $scope.findMatchingMBIDforWishlist = function(IDfromDispVinylhtml) {

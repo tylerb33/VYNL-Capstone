@@ -25,16 +25,16 @@ app.controller("wishlistCtrl", function($scope, $window, FBFactory, LastFMFactor
 		});
 	};
 
-  $scope.wishlistToTrue = function(album) {
-    album.wishlisted = true;
-    album.owned = false;
-    delete album.$$hashKey;
-    console.log ("album", album);
-    FBFactory.editVinyl(album.firebaseID, album)
-    .then ( (response) => {
-      // getAllUserOwned();
-    });
-  };
+  // $scope.wishlistToTrue = function(album) {
+  //   album.wishlisted = true;
+  //   album.owned = false;
+  //   delete album.$$hashKey;
+  //   console.log ("album", album);
+  //   FBFactory.editVinyl(album.firebaseID, album)
+  //   .then ( (response) => {
+  //     // getAllUserOwned();
+  //   });
+  // };
 
   $scope.ownedToTrue = function(album) {
     album.wishlisted = false;
@@ -43,19 +43,19 @@ app.controller("wishlistCtrl", function($scope, $window, FBFactory, LastFMFactor
     console.log ("album", album);
     FBFactory.editVinyl(album.firebaseID, album)
     .then ( (response) => {
-      // getAllUserOwned();
+      getAllUserWishlist();
     });
   };
 
 
-	$scope.deleteVinyl = function(FBID, album){
+	$scope.deleteVinyl = function(album){
       // filteredforWishlist.forEach(function(item, index) {
-      // if (item.mbid == mbid) {
+      console.log ("album", album);
       album.owned = false;
       album.wishlisted = false;
-    	FBFactory.deleteVinyl(FBID)
+    	FBFactory.deleteVinyl(album.firebaseID)
     	.then( (irrelevant) => {
-    		// getAllUserWishlist();
+    		getAllUserWishlist();
     	});
     };
   // });

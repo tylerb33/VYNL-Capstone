@@ -24,4 +24,8 @@ app.controller("navCtrl", function($scope, $window, userFactory){
     }
   });
 	
+  $scope.searchLastFM = function(artistSearch) {
+    console.log ("user search", artistSearch);
+
+  };
 });

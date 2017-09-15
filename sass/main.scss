@@ -7,10 +7,27 @@
 
 #cardContainer {
 	margin: 0 auto;
+	width: 85%;
+
 }
 
-.modal-body {
-	margin: auto;
+.row {
+	text-align: center;
+}
+
+.justify {
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.card {
+	margin: 10px 10px 15px 10px;
+	border: 0px;
+}
+
+img {
+	box-shadow: 10px 10px 25px -1px rgba(0,0,0,0.75);
+	margin-bottom: 20px
 }
 // styling for carousel
 // .carousel-inner.onebyone-carosel { margin: auto; width: 90%; }
