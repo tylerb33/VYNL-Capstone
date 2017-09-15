@@ -1,6 +1,8 @@
 "use strict";
 
-app.controller("showVinylCtrl", function($scope, $window, FBFactory, LastFMFactory, userFactory){
+app.controller("showVinylCtrl", function($scope, $window, FBFactory, LastFMFactory, LastFMService, userFactory){
+
+$scope.LastFMService = LastFMService;
 
 let buildVinylObj;
 
@@ -27,22 +29,22 @@ let buildVinylObj;
   };
 
 
-  $scope.searchLastFM = function(userInput) {
-    arrayOfCustomVinylObjects = [];
-    $scope.arrayOfCustomVinylObjects = [];
-    console.log ("USER INPUT", userInput);
-    LastFMFactory.getLastFMvinyl(userInput)
-    .then((APIvinyl) => {
-      // console.log ("APIvinyl", APIvinyl);
-      vinylFromLastFM = APIvinyl.results.albummatches.album;
-      vinylFromLastFM.forEach(function(item, index) {
-        searchResults.push(item);
-        buildVinylObj(item);
-      });
-      // console.log ("APIvinyl", APIvinyl.results.albummatches.album);
+  // $scope.searchLastFM = function(userInput) {
+  //   arrayOfCustomVinylObjects = [];
+  //   $scope.arrayOfCustomVinylObjects = [];
+  //   console.log ("USER INPUT", userInput);
+  //   LastFMFactory.getLastFMvinyl(userInput)
+  //   .then((APIvinyl) => {
+  //     // console.log ("APIvinyl", APIvinyl);
+  //     vinylFromLastFM = APIvinyl.results.albummatches.album;
+  //     vinylFromLastFM.forEach(function(item, index) {
+  //       searchResults.push(item);
+  //       buildVinylObj(item);
+  //     });
+  //     // console.log ("APIvinyl", APIvinyl.results.albummatches.album);
 
-    });
-  };
+  //   });
+  // };
 
 // Loops through the array of objects from search to find the one with matching MBID from click, which is passed in from the partial.
 
@@ -95,7 +97,7 @@ let buildVinylObj;
           mbid: singleRecord.mbid,
           owned: false,
           wishlisted: false,
-          uid: currentUserID // include uid to the object only if a user is logged in.
+          uid: currentUserID
       };
       arrayOfCustomVinylObjects.push(vinylObj);
     }    
@@ -103,10 +105,5 @@ let buildVinylObj;
       $scope.arrayOfCustomVinylObjects = arrayOfCustomVinylObjects;
 
   };
-
-  
-//   $('#myModal').on('shown.bs.modal', function () {
-//   $('#myInput').focus();
-// });
 
 });

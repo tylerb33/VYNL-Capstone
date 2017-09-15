@@ -19,6 +19,8 @@ app.factory("LastFMFactory", function($q, $http) {
 		});
 	};
 
+	
+
 
 // example of URL to search for an album
 /*

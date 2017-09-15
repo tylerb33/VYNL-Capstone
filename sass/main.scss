@@ -1,4 +1,7 @@
-
+body {
+    background-image: url("https://static.pexels.com/photos/264544/pexels-photo-264544.jpeg");
+    background-size: cover;
+}
 
 #cardButtons {
 	margin: 0 auto;
@@ -29,6 +32,20 @@ img {
 	box-shadow: 10px 10px 25px -1px rgba(0,0,0,0.75);
 	margin-bottom: 20px
 }
+
+#welcomeText {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 400px;
+	color: white;
+	text-align: center;
+}
+
+#mainTitleContainer {
+	margin: auto;
+	text-align: center;
+}
+
+
 // styling for carousel
 // .carousel-inner.onebyone-carosel { margin: auto; width: 90%; }
 // .onebyone-carosel .active.left { left: -33.33%; }
