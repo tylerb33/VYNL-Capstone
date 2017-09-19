@@ -1,6 +1,7 @@
 "use strict";
 
-app.controller("ownedCtrl", function($scope, $window, FBFactory, LastFMFactory, userFactory){
+app.controller("ownedCtrl", function($scope, $window, FBFactory, LastFMFactory, userFactory
+  ){
 
   let vinylFromLastFM = [];
   let currentArray = [];
@@ -43,40 +44,6 @@ app.controller("ownedCtrl", function($scope, $window, FBFactory, LastFMFactory, 
     	getAllUserOwned();
     });
   };
-
-  // $scope.ownedToTrue = function(album) {
-  //   album.wishlisted = false;
-  //   album.owned = true;
-  //   delete album.$$hashKey;
-  //   console.log ("album", album);
-  //   FBFactory.editVinyl(album.firebaseID, album)
-  //   .then ( (response) => {
-  //   	// getAllUserOwned();
-  //   });
-  // };
-
-
-   //  $scope.findMatchingMBIDforWishlist = function(IDfromDispVinylhtml) {
-	  //   console.log ("IDfromDispVinylhtml", IDfromDispVinylhtml);
-	  //   console.log ("filteredforOwned", filteredforOwned);
-	  //   filteredforOwned.forEach(function(item, index) {
-	  //   	console.log("LOOKIE", item.mbid, IDfromDispVinylhtml);
-	  //     if (item.mbid == IDfromDispVinylhtml) {
-	  //       console.log ("ITEM IS HERE", item);
-	  //         item.wishlisted = true;
-	  //         item.owned = false;
-	  //         delete item.$$hashKey;
-	  //       // console.log("You Chose:", item);
-	  //         FBFactory.editVinyl(item.firebaseID, item)
-	  //         .then( (response) => {
-   //        			getAllUserOwned();
-   //    		});    
-	  //    }
-	  //  });
-  	// };
-
-
-
 
 
 	getAllUserOwned();

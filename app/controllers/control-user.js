@@ -30,8 +30,9 @@ app.controller("userCtrl", function($scope, $window, userFactory, $location) {
       console.log("Error:", errorCode, errorMessage);
     });
   };
-});
 
+
+});
   // $scope.account = {
  //    email: "",
  //    password: ""

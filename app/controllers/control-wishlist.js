@@ -81,7 +81,6 @@ app.controller("wishlistCtrl", function($scope, $window, FBFactory, LastFMFactor
   // };
 
 
-
 	getAllUserWishlist();
 
 });
