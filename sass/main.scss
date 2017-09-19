@@ -45,10 +45,29 @@ img {
 	text-align: center;
 }
 
+#playlistText {
+	font-family: 'Permanent Marker', cursive;
+	color: white;
+	font-size: 40px;
+	line-height: 45px;
+}
 
-// styling for carousel
-// .carousel-inner.onebyone-carosel { margin: auto; width: 90%; }
-// .onebyone-carosel .active.left { left: -33.33%; }
-// .onebyone-carosel .active.right { left: 33.33%; }
-// .onebyone-carosel .next { left: 33.33%; }
-// .onebyone-carosel .prev { left: -33.33%; }
+#playlistContainer {
+	width: 70%;
+	margin: auto;
+}
+
+
+#locatorContainer, iframe {
+	display: block;
+	margin: auto;
+	margin-top: 50px;
+	width: 80%;
+}
+
+#locatorText {
+	font-family: 'Permanent Marker', cursive;
+	color: white;
+	font-size: 80px;
+}
+

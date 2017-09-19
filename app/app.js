@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module("VynlApp", ["ngRoute", "ui.bootstrap"]);
+const app = angular.module("VynlApp", ['ngRoute', 'ui.bootstrap']);
 
 //This checks to see if the user is logged in, isAuth sets a true of false variable that will be used to check if the route is okay. 
 let isAuth = (userFactory) => new Promise ((resolve, reject) => {
@@ -16,7 +16,6 @@ let isAuth = (userFactory) => new Promise ((resolve, reject) => {
 		}
 	});
 });
-
 
 //This sets up what is viewable in ng-view, the resolve {isAuth} checks to see if isAuth is true (user logged in) so you can access that view on the main html page and the controller allows that html partial to use one of the controllers.
 app.config(($routeProvider) => {
@@ -50,6 +49,11 @@ app.config(($routeProvider) => {
 		controller: 'addCtrl',
 		resolve: {isAuth}
 	})
+	.when('/locator', {
+		templateUrl: 'partials/locator.html',
+		controller: 'locatorCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 
@@ -63,4 +67,7 @@ app.run(($location, FBCreds) => {
 	};
 	firebase.initializeApp(authConfig);
 });
+
+
+
 

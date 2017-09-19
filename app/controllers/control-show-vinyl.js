@@ -29,6 +29,8 @@ let buildVinylObj;
   };
 
 
+
+
   // $scope.searchLastFM = function(userInput) {
   //   arrayOfCustomVinylObjects = [];
   //   $scope.arrayOfCustomVinylObjects = [];
