@@ -1,0 +1,30 @@
+<div id="mainTitleContainer">
+	<span id="locatorText" class="headlineText">Some albums you might enjoy...</span>
+</div>
+
+<!-- ng-repeat of actual albums -->
+<div id="cardContainer">
+  <div class="row justify">
+    <div ng-repeat= "album in arrayOfCustomVinylObjects">
+
+      <div class="col-md-4">
+      <div class="card" data-mbid="{{album.mbid}}" style="width: 20rem;">
+        <img class="card-img-top" src="{{album.album_image}}" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">{{album.album_name}}</h4>
+          <p class="card-text">{{album.artist_name}}</p>
+          <a href="" ng-show="album.wishlisted !== true" ng-click="wishlistToTrue(album)" class="btn btn-outline-success">+ Wishlist</a>
+        <!--   <a href="" ng-show="album.owned !== true" ng-click="ownedToTrue(album)" class="btn btn-outline-success">+ Owned</a> -->
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="centerButtonContainer">
+	<div>
+	    <button type="button" ng-click="showVinylOnPage()" class="btn btn-success btn-lg">Show Me More!</button>
+	</div>
+</div>

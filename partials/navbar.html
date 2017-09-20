@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" ng-controller="navCtrl">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" ng-controller="navCtrl" ng-show="isLoggedIn">
     <i class="fa fa-headphones" aria-hidden="true"></i>
     <!-- <a class="navbar-brand" href="#">glyphicon glyphicon-cd</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,11 +7,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="#!/usercollection">Your Collection<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#!/wishlist">Wishlist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/recommendations">Vinyl You Might Enjoy</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#!/locator">Record Shop Locator</a>
@@ -22,7 +25,7 @@
       </ul>
     </div>
 
-  <div class="col-lg-6">
+  <div class="col-lg-4">
     <div class="input-group">
       <input type="text" ng-model="artistSearch" id="userArtistInput" class="form-control" placeholder="Search by artist..." aria-label="Search for...">
       <span class="input-group-btn">

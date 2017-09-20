@@ -54,6 +54,11 @@ app.config(($routeProvider) => {
 		controller: 'locatorCtrl',
 		resolve: {isAuth}
 	})
+	.when('/recommendations', {
+		templateUrl: 'partials/recos.html',
+		controller: 'recosCtrl',
+		resolve: {isAuth}
+	})
 	.otherwise('/');
 });
 
