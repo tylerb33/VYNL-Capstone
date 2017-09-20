@@ -4,7 +4,9 @@ app.factory("LastFMFactory", function($q, $http) {
 
 	let baseURL = "http://ws.audioscrobbler.com/2.0/";
 	let albumSearch = "?method=album.search&album=";
-	let userInput = "sinners+like+me";
+	let similarArtistSearch = "?method=artist.getsimilar&artist=";
+	let topAlbumSearch = "?method=artist.gettopalbums&mbid=";
+	let userInput = "";
 	let apiString = "&api_key=1036cabbf52b9b5ebd2c7bfee28ea1f1";
 	let format = "&format=json";
 
@@ -19,18 +21,41 @@ app.factory("LastFMFactory", function($q, $http) {
 		});
 	};
 
-	
+	const getSimilarArtists = function (singleArtist) {
+		let reducedArtistList = [];
+
+		return $q((resolve, reject) => {
+			$http.get(baseURL + similarArtistSearch + singleArtist + apiString + format)
+			.then ((response) => {
+				let drilledToArtistNames = response.data.similarartists.artist;
+				for (let i = 0; i < 5; i++) {
+					reducedArtistList.push(drilledToArtistNames[i].mbid);
+				}
+				// console.log ("REDUCED ARTIST SIMILAR LIST", reducedArtistList);
+				resolve(reducedArtistList);
+			});
+		});
+	};
 
 
-// example of URL to search for an album
-/*
-http://ws.audioscrobbler.com/2.0/
-?method=album.search&album=sinners+like+me
-&api_key=1036cabbf52b9b5ebd2c7bfee28ea1f1
-&format=json
-*/
+	const getAlbums = function (singleArtistMBID) {
+		let similarAlbumMBIDS = [];
+		let albums = [];
+
+		return $q((resolve, reject) => {
+			$http.get(baseURL + topAlbumSearch + singleArtistMBID + apiString + format)
+			.then ((response) => {
+				let justAlbums = response.data.topalbums.album;
+				for (let i=0; i < 5; i++) {
+					albums.push(justAlbums[i]);
+				}
+				console.log ("response from LASTFM", albums);
+				resolve(albums);
+		});
+	});
+};
 
 
 
- return {getLastFMvinyl};
+ return {getLastFMvinyl, getSimilarArtists, getAlbums};
 });

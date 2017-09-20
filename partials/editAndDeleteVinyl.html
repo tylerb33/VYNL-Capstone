@@ -1,20 +1,22 @@
-<h2>{{headerText}}</h2>
+<div id="mainTitleContainer">
+  <h2 id="locatorText" class="headlineText">{{headerText}}</h2>
+  <div class="col-md-6" id="vinylForm">
+    <form>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Artist Name:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter an artist" ng-model="album.artist_name">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Album Name:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter an album name" ng-model="album.album_name">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Image URL:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Enter a link to an album image (optional)" ng-model="album.album_image">
+      </div>
 
-<div class="col-md-6" id="vinylForm">
-  <form>
-    <div class="form-group">
-      <label for="formGroupExampleInput">Artist Name:</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter an artist" ng-model="album.artist_name">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">Album Name:</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter an album name" ng-model="album.album_name">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">Image URL:</label>
-      <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Enter a link to an album image (optional)" ng-model="album.album_image">
-    </div>
-
-    <button type="button" ng-click="submitVinyl()" class="btn btn-primary btn-lg">{{buttonText}}</button>
-  </form>
+      <button type="button" ng-click="submitVinyl()" class="btn btn-primary btn-lg">{{buttonText}}</button>
+    </form>
+  </div>
 </div>
+

@@ -28,4 +28,10 @@ app.controller("navCtrl", function($scope, $window, userFactory, LastFMService){
     console.log ("artistSearch", artistSearch);
     LastFMService.getLastFMvinyl(artistSearch);
     };
+
+  $(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+});
+
 });

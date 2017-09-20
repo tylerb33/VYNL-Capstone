@@ -2,7 +2,7 @@
 
 app.controller("addCtrl", function($scope, $routeParams, $location, userFactory, FBFactory){
 
-$scope.headerText = "Create A New Vinyl";
+$scope.headerText = "Create New Vinyl";
 $scope.buttonText = "Add to Wishlist";
 
 let currentUser = userFactory.getCurrentUser();

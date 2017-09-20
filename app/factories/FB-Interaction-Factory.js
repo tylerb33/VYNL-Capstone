@@ -100,5 +100,3 @@ app.factory("FBFactory", function($q, $http, FBCreds) {
 	return {getAllVinyl, addVinyl, getSingleVinyl, deleteVinyl, editVinyl, addVinylToOwned};
 });
 
-
-
