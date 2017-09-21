@@ -21,22 +21,6 @@ app.controller("recosCtrl", function($scope, $window, FBFactory, LastFMFactory, 
 
 //the below calls the database to get the users' owned albums, then calls a helper function to remove any duplicates.
 
-	// const getAllUserOwnedMBIDs = function() {
-
-	// 	let useridgoeshere = userFactory.getCurrentUser();
-	// 	FBFactory.getAllVinyl(useridgoeshere)
-	// 	.then((arrayOfCustomVinylObjects) => {
-	// 		for (let i = 0; i < arrayOfCustomVinylObjects.length; i++) {
-	// 			if (arrayOfCustomVinylObjects[i].owned === true) {
- //            		ownedMBID.push(arrayOfCustomVinylObjects[i].artist_name);
- //            	}
- //      		}
-	// 		let getUniques = getUniqueValuesInArray(ownedMBID);
-	// 		// console.log ("ownedMBID", ownedMBID);
- //      		return getUniques;
-	// 	});
-	// };
-
 	const getAllUserOwnedMBIDs = function() {
 
 		return $q((resolve, reject) => {
@@ -124,7 +108,6 @@ $scope.showVinylOnPage = function() {
 
     if (singleRecord.image[3]['#text'] !== "" && singleRecord.mbid !== "") {
       let currentUserID = userFactory.getCurrentUser();
-      // console.log ("currentUserID", currentUserID);
       //if vinyl record has an image, run the below
       let vinylObj = {
           //had to use bracket notation for #text since the hash is a special character, throws errors otherwise

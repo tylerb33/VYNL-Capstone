@@ -42,16 +42,3 @@ this.results = [];
 		});
 	};
 });
-
-
-
-
-
-
-// example of URL to search for an album
-/*
-http://ws.audioscrobbler.com/2.0/
-?method=album.search&album=sinners+like+me
-&api_key=1036cabbf52b9b5ebd2c7bfee28ea1f1
-&format=json
-*/

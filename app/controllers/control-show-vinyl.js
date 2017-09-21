@@ -28,26 +28,6 @@ let buildVinylObj;
     FBFactory.addVinyl(album);
   };
 
-
-
-
-  // $scope.searchLastFM = function(userInput) {
-  //   arrayOfCustomVinylObjects = [];
-  //   $scope.arrayOfCustomVinylObjects = [];
-  //   console.log ("USER INPUT", userInput);
-  //   LastFMFactory.getLastFMvinyl(userInput)
-  //   .then((APIvinyl) => {
-  //     // console.log ("APIvinyl", APIvinyl);
-  //     vinylFromLastFM = APIvinyl.results.albummatches.album;
-  //     vinylFromLastFM.forEach(function(item, index) {
-  //       searchResults.push(item);
-  //       buildVinylObj(item);
-  //     });
-  //     // console.log ("APIvinyl", APIvinyl.results.albummatches.album);
-
-  //   });
-  // };
-
 // Loops through the array of objects from search to find the one with matching MBID from click, which is passed in from the partial.
 
 
@@ -63,20 +43,6 @@ let buildVinylObj;
     });
   };
 
-  // $scope.findMatchingMBIDforOwned = function(IDfromDispVinylhtml) {
-  //   console.log ("IDfromDispVinylhtml", IDfromDispVinylhtml);
-  //   console.log ("arrayOfCustomVinylObjects", arrayOfCustomVinylObjects);
-  //   arrayOfCustomVinylObjects.forEach(function(item, index) {
-  //     if (item.mbid == IDfromDispVinylhtml) {
-  //       console.log ("ITEM IS HERE", item);
-  //         item.owned = true;
-  //       // console.log("You Chose:", item);
-  //         FBFactory.addVinylToOwned(item);
-  //     }
-  //   });
-  // };
-
-    // console.log ("IDfromDispVinylhtml", IDfromDispVinylhtml);
 
 
 // The below looks to see if a vinyl has an image. If it doesn't, then it will not have an object built for it and will not be printed to the page.

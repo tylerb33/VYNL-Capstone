@@ -40,24 +40,3 @@ app.factory("userFactory", function($q, $http){
     
     return {isAuthenticated, getCurrentUser, logOut, authWithProvider};
 });
-
-
-//not currently planning on letting users register on the app
-    // const logIn = function(userObj) {
-    //     return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password)
-    //     .catch( function(error){
-    //         let errorCode = error.code;
-    //         let errorMessage = error.message;
-    //         console.log("error", errorCode, errorMessage);
-    //     });
-    // };
-
-//not currently planning on letting users register on the app
-    // const register = function(userObj){
-    //     return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
-    //     .catch( function(error){
-    //         let errorCode = error.code;
-    //         let errorMessage = error.message;
-    //         console.log("error", errorCode, errorMessage);
-    //     });
-    // };
