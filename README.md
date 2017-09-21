@@ -1,5 +1,5 @@
 # VYNL
-An easy way to track your vinyl collection, as well as keep track of vinyl to keep searching for!
+An easy way to track your vinyl collection, as well as keep track of vinyl to keep searching for! VYNL will also make album recommendations based on the albums marked as 'owned' by the user.
 
 ## Getting Started
 
