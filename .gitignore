@@ -1,4 +1,5 @@
 lib/node_modules
 css/
-app/values/
+app/values/fb-creds.js
+app/values/lastFMapikey.js
 lib/.sass-cache
