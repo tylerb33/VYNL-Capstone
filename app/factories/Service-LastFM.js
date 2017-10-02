@@ -1,6 +1,6 @@
 "use strict";
 
-app.service("LastFMService", function($q, $http, userFactory) {
+app.service("LastFMService", function($q, $http, userFactory, lastFMcreds) {
 
 this.results = [];
 
@@ -8,7 +8,7 @@ this.results = [];
 	let baseURL = "http://ws.audioscrobbler.com/2.0/";
 	let albumSearch = "?method=album.search&album=";
 	let userInput = "sinners+like+me";
-	let apiString = "&api_key=1036cabbf52b9b5ebd2c7bfee28ea1f1";
+	let apiString = `&api_key=${lastFMcreds.apiKey}`;
 	let format = "&format=json";
 
 	this.getLastFMvinyl = function (userInput) {
