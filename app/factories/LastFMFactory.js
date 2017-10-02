@@ -7,7 +7,7 @@ app.factory("LastFMFactory", function($q, $http, lastFMcreds) {
 	let similarArtistSearch = "?method=artist.getsimilar&artist=";
 	let topAlbumSearch = "?method=artist.gettopalbums&mbid=";
 	let userInput = "";
-	let apiString = "&api_key=1036cabbf52b9b5ebd2c7bfee28ea1f1";
+	let apiString = `&api_key=${lastFMcreds.apiKey}`;
 	let format = "&format=json";
 
 	const getLastFMvinyl = function (userInput) {
