@@ -1,7 +1,7 @@
 "use strict";
 
 app.constant("FBCreds", {
-    apiKey: "YOUR FIREBASE API KEY",
-    authDomain: "YOUR FIREBASE AUTHDOMAIN",
-    databaseURL: "YOUR FIREBASE DATABASEURL"
+    apiKey: "AIzaSyB4NN3PvMqKRxAUB63GGqXlQsaJSWr0sgQ",
+    authDomain: "vynl-8433d.firebaseapp.com",
+    databaseURL: "https://vynl-8433d.firebaseio.com"
 });

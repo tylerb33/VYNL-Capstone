@@ -1,5 +1,5 @@
 "use strict";
 
 app.constant("lastFMcreds", {
-    apiKey: "YOUR LAST FM API KEY"
+    apiKey: "1036cabbf52b9b5ebd2c7bfee28ea1f1"
 });
