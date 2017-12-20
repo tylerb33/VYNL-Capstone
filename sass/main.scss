@@ -31,7 +31,7 @@ body {
 	padding-bottom: 17px;
 }
 
-img {
+.albumImg {
 	box-shadow: 10px 10px 25px -1px rgba(0,0,0,0.75);
 	margin-bottom: 20px
 }
@@ -42,6 +42,7 @@ img {
 	color: white;
 	text-align: center;
 }
+
 
 #mainTitleContainer {
 	margin: auto;
@@ -90,6 +91,8 @@ img {
 .form-group {
 	color: white;
 }
+
+#mapid { height: 600px; }
 
 @media screen and (max-width: 600px) {
     .headlineText {
