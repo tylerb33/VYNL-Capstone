@@ -1,5 +1,4 @@
 
-
 "use strict";
 //This is the factory that pulls in the user data. 
 app.factory("userFactory", function($q, $http){
@@ -15,7 +14,7 @@ app.factory("userFactory", function($q, $http){
                     currentUser = user.uid;
                     console.log("user", user.uid);
                     resolve(true);
-                }else {
+                } else {
                     resolve(false);
                 }
             });
